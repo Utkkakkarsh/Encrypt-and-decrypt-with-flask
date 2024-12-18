@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Encryption</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            resize: vertical;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .output {
+            margin-top: 20px;
+        }
+
+        .output h3 {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .output p {
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            color: #555;
+            word-wrap: break-word; /* Prevents long words from breaking out */
+            white-space: pre-wrap; /* Ensures multi-line text is wrapped */
+            overflow-wrap: break-word; /* Breaks long words when necessary */
+            max-width: 100%; /* Ensure text doesn't go beyond the width of the box */
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Message Encryption and Decryption</h1>
+    </header>
+
+    <div class="container">
+        <form method="POST">
+            <label for="message">Enter your message:</label><br>
+            <textarea id="message" name="message" rows="4" placeholder="Type your message here...">{{ request.form['message'] }}</textarea><br><br>
+
+            <button type="submit" name="action" value="encrypt">Encrypt</button>
+            <button type="submit" name="action" value="decrypt">Decrypt</button>
+        </form>
+
+        <div class="output">
+            <h3>Encrypted Message:</h3>
+            <p>{{ encrypted_message or 'No message to display' }}</p>
+
+            <h3>Decrypted Message:</h3>
+            <p>{{ decrypted_message or 'No message to display' }}</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Message Encryption. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
